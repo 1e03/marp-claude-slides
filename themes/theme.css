@@ -1,0 +1,1061 @@
+/* @theme custom */
+
+@import 'default';
+
+/* ==========================================================================
+   Marp Custom Theme
+   ========================================================================== */
+
+/* --------------------------------------------------------------------------
+   1. Design Tokens — カスタマイズはここだけ
+   --------------------------------------------------------------------------
+   Fork後のカラーテーマ変更はこのセクションのみ編集してください。
+   config.yml の値と対応しています。
+   -------------------------------------------------------------------------- */
+
+:root {
+  /* ── ブランドカラー（config.yml: colors.primary / colors.accent） ─────── */
+  --primary:        #1B4565;
+  --primary-light:  #2A5F8A;
+  --primary-dark:   #112D42;
+  --accent:         #3E9BA4;
+  --accent-light:   #5BB8C0;
+  --accent-dark:    #2D7A82;
+
+  /* ── グレースケール（config.yml: colors.grayscale） ─────────────────── */
+  --gray-50:     #F9FAFB;
+  --gray-100:    #F3F4F6;
+  --gray-200:    #E5E7EB;
+  --gray-300:    #D1D5DB;
+  --gray-400:    #9CA3AF;
+  --gray-500:    #6B7280;
+  --gray-600:    #4B5563;
+  --gray-700:    #374151;
+  --gray-800:    #1F2937;
+  --gray-900:    #111827;
+
+  /* ── セマンティックカラー（config.yml: colors.semantic） ────────────── */
+  --info:        #3B82F6;
+  --info-bg:     #EFF6FF;
+  --info-border: #BFDBFE;
+  --success:     #10B981;
+  --success-bg:  #ECFDF5;
+  --success-border: #A7F3D0;
+  --warning:     #F59E0B;
+  --warning-bg:  #FFFBEB;
+  --warning-border: #FDE68A;
+  --danger:      #EF4444;
+  --danger-bg:   #FEF2F2;
+  --danger-border: #FECACA;
+
+  /* ── フォント（config.yml: typography.font_sans / font_mono） ────── */
+  --font-sans:   system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  --font-mono:   'SF Mono', 'Fira Code', 'Fira Mono', 'Roboto Mono', Menlo, Consolas, monospace;
+
+  /* ── スペーシング（config.yml: spacing.base_unit: 8px） ─────────── */
+  --space-1:  4px;
+  --space-2:  8px;
+  --space-3:  12px;
+  --space-4:  16px;
+  --space-6:  24px;
+  --space-8:  32px;
+  --space-10: 40px;
+  --space-12: 48px;
+  --space-16: 64px;
+
+  /* ── 角丸・影・トランジション ──────────────────────────────────── */
+  --radius-sm:  4px;
+  --radius-md:  8px;
+  --radius-lg:  12px;
+  --radius-xl:  16px;
+
+  --shadow-sm:  0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md:  0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -2px rgba(0, 0, 0, 0.1);
+  --shadow-lg:  0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -4px rgba(0, 0, 0, 0.1);
+
+  --transition: 0.2s ease-in-out;
+}
+
+
+/* --------------------------------------------------------------------------
+   2. Base Section (Slide) Styles
+   -------------------------------------------------------------------------- */
+
+section {
+  width: 1280px;
+  height: 720px;
+  font-family: var(--font-sans);
+  font-size: 28px;
+  line-height: 1.6;
+  letter-spacing: -0.01em;
+  color: var(--gray-800);
+  background-color: #FFFFFF;
+  padding: var(--space-12) var(--space-16);
+  box-sizing: border-box;
+}
+
+@auto-scaling true;
+
+
+/* --------------------------------------------------------------------------
+   3. Typography Base
+   -------------------------------------------------------------------------- */
+
+section h1 {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+  margin-bottom: var(--space-6);
+}
+
+section h2 {
+  font-size: 1.6em;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.3;
+  letter-spacing: -0.015em;
+  margin-bottom: var(--space-4);
+}
+
+section h3 {
+  font-size: 1.3em;
+  font-weight: 600;
+  color: var(--primary-light);
+  line-height: 1.35;
+  margin-bottom: var(--space-3);
+}
+
+section h4 {
+  font-size: 1.1em;
+  font-weight: 600;
+  color: var(--gray-700);
+  margin-bottom: var(--space-2);
+}
+
+section p {
+  margin-bottom: var(--space-4);
+}
+
+section a {
+  color: var(--accent);
+  text-decoration: underline;
+  text-underline-offset: 2px;
+  transition: color var(--transition);
+}
+
+section a:hover {
+  color: var(--accent-dark);
+}
+
+section strong {
+  font-weight: 700;
+  color: var(--gray-900);
+}
+
+section em {
+  font-style: italic;
+}
+
+section code {
+  font-family: var(--font-mono);
+  font-size: 0.85em;
+  background: var(--gray-100);
+  color: var(--primary);
+  padding: 2px 6px;
+  border-radius: var(--radius-sm);
+}
+
+section pre {
+  background: var(--gray-900);
+  color: var(--gray-100);
+  padding: var(--space-6);
+  border-radius: var(--radius-md);
+  font-size: 0.75em;
+  line-height: 1.5;
+  overflow-x: auto;
+  box-shadow: var(--shadow-md);
+}
+
+section pre code {
+  background: none;
+  color: inherit;
+  padding: 0;
+}
+
+section ul,
+section ol {
+  margin-bottom: var(--space-4);
+  padding-left: 1.5em;
+}
+
+section li {
+  margin-bottom: var(--space-2);
+}
+
+section li::marker {
+  color: var(--accent);
+}
+
+section hr {
+  border: none;
+  border-top: 2px solid var(--gray-200);
+  margin: var(--space-8) 0;
+}
+
+section table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.9em;
+  margin: var(--space-4) 0;
+}
+
+section table th {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-weight: 600;
+  text-align: left;
+  padding: var(--space-3) var(--space-4);
+}
+
+section table td {
+  padding: var(--space-3) var(--space-4);
+  border-bottom: 1px solid var(--gray-200);
+}
+
+section table tr:nth-child(even) {
+  background: var(--gray-50);
+}
+
+section blockquote {
+  border-left: 4px solid var(--accent);
+  margin: var(--space-6) 0;
+  padding: var(--space-4) var(--space-6);
+  background: var(--gray-50);
+  border-radius: 0 var(--radius-md) var(--radius-md) 0;
+  font-style: italic;
+  color: var(--gray-600);
+}
+
+section blockquote p {
+  margin-bottom: 0;
+}
+
+section img {
+  max-width: 100%;
+  border-radius: var(--radius-md);
+}
+
+
+/* --------------------------------------------------------------------------
+   4. Component Classes
+   -------------------------------------------------------------------------- */
+
+/* --- 4.1  Title Slide --- */
+
+section.title-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #FFFFFF;
+  padding: var(--space-16);
+}
+
+section.title-slide h1 {
+  font-size: 3em;
+  color: #FFFFFF;
+  margin-bottom: var(--space-6);
+}
+
+section.title-slide h2 {
+  font-size: 1.4em;
+  font-weight: 400;
+  color: rgba(255, 255, 255, 0.8);
+  margin-bottom: var(--space-8);
+}
+
+section.title-slide p {
+  color: rgba(255, 255, 255, 0.65);
+  font-size: 0.9em;
+}
+
+section.title-slide::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+
+/* --- 4.2  Section Slide --- */
+
+section.section-slide {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  background: #FFFFFF;
+  padding-left: var(--space-16);
+  border-left: 8px solid var(--accent);
+}
+
+section.section-slide h1 {
+  font-size: 2.8em;
+  color: var(--primary);
+  margin-bottom: var(--space-4);
+}
+
+section.section-slide h2 {
+  font-size: 1.3em;
+  font-weight: 400;
+  color: var(--accent);
+}
+
+section.section-slide::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 240px;
+  height: 100%;
+  background: linear-gradient(180deg, rgba(62, 155, 164, 0.06) 0%, transparent 100%); /* accent RGB */
+  pointer-events: none;
+}
+
+
+/* --- 4.3  Two Column Layout --- */
+
+section.two-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 0 var(--space-8);
+}
+
+section.two-col > h1,
+section.two-col > h2,
+section.two-col > h3 {
+  grid-column: 1 / -1;
+}
+
+section.two-col div.left,
+section.two-col div.right {
+  padding: var(--space-4) var(--space-2);
+}
+
+section.two-col div.left {
+  grid-column: 1;
+  border-right: 1px solid var(--gray-200);
+  padding-right: var(--space-6);
+}
+
+section.two-col div.right {
+  grid-column: 2;
+  padding-left: var(--space-6);
+}
+
+
+/* --- 4.4  Three Column Layout --- */
+
+section.three-col {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: var(--space-6);
+}
+
+section.three-col > h1,
+section.three-col > h2,
+section.three-col > h3 {
+  grid-column: 1 / -1;
+}
+
+
+/* --- 4.5  Asymmetric Layout (2:1) --- */
+
+section.asymmetric {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: var(--space-6);
+}
+
+section.asymmetric > h1,
+section.asymmetric > h2,
+section.asymmetric > h3 {
+  grid-column: 1 / -1;
+}
+
+section.asymmetric div.main,
+section.asymmetric div.left {
+  grid-column: 1;
+}
+
+section.asymmetric div.side,
+section.asymmetric div.right {
+  grid-column: 2;
+  padding-left: var(--space-4);
+  border-left: 1px solid var(--gray-200);
+}
+
+
+/* --- 4.5b Comparison Panels --- */
+
+section.comparison-panels {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: auto 1fr;
+  gap: 0 var(--space-6);
+}
+
+section.comparison-panels > h1,
+section.comparison-panels > h2,
+section.comparison-panels > h3 {
+  grid-column: 1 / -1;
+}
+
+section.comparison-panels div.panel {
+  padding: var(--space-4) var(--space-6);
+  border-radius: var(--radius-md);
+  border: 1px solid var(--gray-200);
+}
+
+section.comparison-panels div.panel.current {
+  background: var(--gray-50);
+  border-left: 4px solid var(--gray-400);
+}
+
+section.comparison-panels div.panel.proposed {
+  background: var(--success-bg);
+  border-left: 4px solid var(--success);
+}
+
+
+/* --- 4.6  Metric Card --- */
+
+section.metric-card div.metrics {
+  display: flex;
+  gap: var(--space-6);
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: var(--space-6);
+}
+
+section.metric-card div.metric {
+  flex: 1 1 200px;
+  max-width: 280px;
+  background: #FFFFFF;
+  border: 1px solid var(--gray-200);
+  border-radius: var(--radius-lg);
+  padding: var(--space-6) var(--space-8);
+  text-align: center;
+  box-shadow: var(--shadow-md);
+  transition: transform var(--transition), box-shadow var(--transition);
+}
+
+section.metric-card div.metric:hover {
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-lg);
+}
+
+section.metric-card div.metric h3 {
+  font-size: 0.75em;
+  font-weight: 600;
+  color: var(--gray-500);
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  margin-bottom: var(--space-2);
+}
+
+section.metric-card div.metric p {
+  font-size: 2.2em;
+  font-weight: 700;
+  color: var(--primary);
+  line-height: 1.1;
+  margin-bottom: var(--space-1);
+}
+
+section.metric-card div.metric em {
+  font-style: normal;
+  font-size: 0.8em;
+  color: var(--accent);
+}
+
+
+/* --- 4.7  Comparison Table --- */
+
+section.comparison-table table {
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+section.comparison-table table th {
+  background: var(--primary);
+  color: #FFFFFF;
+  font-size: 0.85em;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: var(--space-4);
+}
+
+section.comparison-table table th:first-child {
+  border-radius: var(--radius-md) 0 0 0;
+}
+
+section.comparison-table table th:last-child {
+  border-radius: 0 var(--radius-md) 0 0;
+}
+
+section.comparison-table table td {
+  padding: var(--space-3) var(--space-4);
+  vertical-align: top;
+}
+
+section.comparison-table table tr:hover {
+  background: rgba(62, 155, 164, 0.05); /* accent RGB */
+}
+
+
+/* --- 4.8  Timeline --- */
+
+section.timeline div.timeline {
+  position: relative;
+  padding-left: var(--space-10);
+  margin-top: var(--space-6);
+}
+
+section.timeline div.timeline::before {
+  content: '';
+  position: absolute;
+  left: 12px;
+  top: 0;
+  bottom: 0;
+  width: 3px;
+  background: linear-gradient(180deg, var(--accent) 0%, var(--primary) 100%);
+  border-radius: 2px;
+}
+
+section.timeline div.event {
+  position: relative;
+  margin-bottom: var(--space-6);
+  padding: var(--space-3) var(--space-4);
+  background: var(--gray-50);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--accent);
+}
+
+section.timeline div.event::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--space-10) - 3px + 6px);
+  top: 14px;
+  width: 14px;
+  height: 14px;
+  background: var(--accent);
+  border: 3px solid #FFFFFF;
+  border-radius: 50%;
+  box-shadow: var(--shadow-sm);
+}
+
+section.timeline div.event h3 {
+  font-size: 0.95em;
+  color: var(--primary);
+  margin-bottom: var(--space-1);
+}
+
+section.timeline div.event p {
+  font-size: 0.85em;
+  color: var(--gray-600);
+  margin-bottom: 0;
+}
+
+
+/* --- 4.9  Quote Block --- */
+
+section.quote-block {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: var(--space-16);
+}
+
+section.quote-block blockquote {
+  border-left: 5px solid var(--accent);
+  background: var(--gray-50);
+  padding: var(--space-8) var(--space-10);
+  border-radius: 0 var(--radius-lg) var(--radius-lg) 0;
+  font-size: 1.3em;
+  line-height: 1.5;
+  color: var(--gray-700);
+  max-width: 900px;
+  position: relative;
+}
+
+section.quote-block blockquote::before {
+  content: '\201C';
+  position: absolute;
+  top: -20px;
+  left: 16px;
+  font-size: 4em;
+  color: var(--accent);
+  opacity: 0.3;
+  font-family: Georgia, serif;
+  line-height: 1;
+}
+
+
+/* --- 4.10 Code Slide --- */
+
+section.code-slide {
+  padding: var(--space-8) var(--space-12);
+}
+
+section.code-slide h2 {
+  font-size: 1.3em;
+  margin-bottom: var(--space-4);
+}
+
+section.code-slide pre {
+  font-size: 0.82em;
+  padding: var(--space-8);
+  border-radius: var(--radius-lg);
+  max-height: 520px;
+  overflow-y: auto;
+}
+
+section.code-slide pre code {
+  line-height: 1.6;
+}
+
+
+/* --- 4.11 Image Background Slide --- */
+
+section.image-bg {
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: #FFFFFF;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-12) var(--space-16);
+}
+
+section.image-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to top,
+    rgba(17, 45, 66, 0.85) 0%,   /* primary-dark RGB */
+    rgba(17, 45, 66, 0.4) 50%,   /* primary-dark RGB */
+    transparent 100%
+  );
+  pointer-events: none;
+}
+
+section.image-bg h1,
+section.image-bg h2,
+section.image-bg h3,
+section.image-bg p {
+  position: relative;
+  z-index: 1;
+  color: #FFFFFF;
+}
+
+section.image-bg h1 {
+  color: #FFFFFF;
+  text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+
+/* --- 4.12 Highlight Box --- */
+
+section .highlight-box {
+  background: var(--warning-bg);
+  border: 1px solid var(--warning-border);
+  border-left: 4px solid var(--warning);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-4) 0;
+  color: var(--gray-800);
+}
+
+
+/* --- 4.13 Warning Box --- */
+
+section .warning-box {
+  background: var(--danger-bg);
+  border: 1px solid var(--danger-border);
+  border-left: 4px solid var(--danger);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-4) 0;
+  color: var(--gray-800);
+}
+
+
+/* --- 4.14 Info Box --- */
+
+section .info-box {
+  background: var(--info-bg);
+  border: 1px solid var(--info-border);
+  border-left: 4px solid var(--info);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-4) 0;
+  color: var(--gray-800);
+}
+
+
+/* --- 4.15 Success Box --- */
+
+section .success-box {
+  background: var(--success-bg);
+  border: 1px solid var(--success-border);
+  border-left: 4px solid var(--success);
+  border-radius: var(--radius-md);
+  padding: var(--space-4) var(--space-6);
+  margin: var(--space-4) 0;
+  color: var(--gray-800);
+}
+
+
+/* --- 4.16 Agenda Slide --- */
+
+section.agenda-slide {
+  padding: var(--space-12) var(--space-16);
+}
+
+section.agenda-slide h1 {
+  margin-bottom: var(--space-8);
+}
+
+section.agenda-slide ol {
+  list-style: none;
+  counter-reset: agenda;
+  padding-left: 0;
+}
+
+section.agenda-slide ol li {
+  counter-increment: agenda;
+  display: flex;
+  align-items: center;
+  padding: var(--space-3) var(--space-4);
+  margin-bottom: var(--space-3);
+  border-radius: var(--radius-md);
+  transition: background var(--transition);
+  font-size: 1.05em;
+}
+
+section.agenda-slide ol li:hover {
+  background: var(--gray-50);
+}
+
+section.agenda-slide ol li::before {
+  content: counter(agenda, decimal-leading-zero);
+  font-weight: 700;
+  font-size: 1.4em;
+  color: var(--accent);
+  margin-right: var(--space-6);
+  min-width: 48px;
+}
+
+section.agenda-slide ol li::after {
+  content: '';
+  flex: 1;
+  border-bottom: 1px dashed var(--gray-300);
+  margin: 0 var(--space-4);
+}
+
+
+/* --- 4.17 Summary Slide --- */
+
+section.summary-slide {
+  padding: var(--space-12) var(--space-16);
+  background: var(--gray-50);
+}
+
+section.summary-slide h1 {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-4);
+  border-bottom: 3px solid var(--accent);
+}
+
+section.summary-slide ul {
+  list-style: none;
+  padding-left: 0;
+}
+
+section.summary-slide ul li {
+  position: relative;
+  padding: var(--space-3) var(--space-4) var(--space-3) var(--space-10);
+  margin-bottom: var(--space-3);
+  background: #FFFFFF;
+  border-radius: var(--radius-md);
+  box-shadow: var(--shadow-sm);
+}
+
+section.summary-slide ul li::before {
+  content: '\2713';
+  position: absolute;
+  left: var(--space-4);
+  color: var(--accent);
+  font-weight: 700;
+  font-size: 1.1em;
+}
+
+
+/* --- 4.18 Thank You Slide --- */
+
+section.thank-you {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+  color: #FFFFFF;
+}
+
+section.thank-you h1 {
+  font-size: 3.5em;
+  color: #FFFFFF;
+  margin-bottom: var(--space-6);
+}
+
+section.thank-you p {
+  color: rgba(255, 255, 255, 0.7);
+  font-size: 1.1em;
+}
+
+section.thank-you a {
+  color: var(--accent-light);
+}
+
+section.thank-you::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 6px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-light) 100%);
+}
+
+
+/* --- 4.19 Dark Variant --- */
+
+section.dark {
+  background: var(--gray-900);
+  color: var(--gray-100);
+}
+
+section.dark h1,
+section.dark h2,
+section.dark h3,
+section.dark h4 {
+  color: #FFFFFF;
+}
+
+section.dark p {
+  color: var(--gray-300);
+}
+
+section.dark strong {
+  color: #FFFFFF;
+}
+
+section.dark code {
+  background: var(--gray-800);
+  color: var(--accent-light);
+}
+
+section.dark pre {
+  background: var(--gray-800);
+  border: 1px solid var(--gray-700);
+}
+
+section.dark table th {
+  background: var(--gray-800);
+}
+
+section.dark table td {
+  border-bottom-color: var(--gray-700);
+}
+
+section.dark table tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+section.dark blockquote {
+  background: var(--gray-800);
+  color: var(--gray-300);
+}
+
+section.dark hr {
+  border-top-color: var(--gray-700);
+}
+
+section.dark li::marker {
+  color: var(--accent-light);
+}
+
+section.dark a {
+  color: var(--accent-light);
+}
+
+
+/* --- 4.20 Minimal --- */
+
+section.minimal {
+  padding: var(--space-16) 120px;
+  background: #FFFFFF;
+}
+
+section.minimal h1 {
+  font-weight: 600;
+  font-size: 2em;
+  letter-spacing: -0.03em;
+}
+
+section.minimal h2 {
+  font-weight: 500;
+  color: var(--gray-600);
+}
+
+section.minimal p {
+  color: var(--gray-600);
+  font-size: 0.95em;
+}
+
+section.minimal ul,
+section.minimal ol {
+  color: var(--gray-600);
+}
+
+section.minimal hr {
+  border-top: 1px solid var(--gray-100);
+}
+
+section.minimal blockquote {
+  border-left-color: var(--gray-300);
+  background: transparent;
+}
+
+
+/* --------------------------------------------------------------------------
+   5. Tailwind-like Utility Classes (scoped under section)
+   -------------------------------------------------------------------------- */
+
+/* --- 5.1 Text Sizes --- */
+
+section .text-sm   { font-size: 0.75em; }
+section .text-lg   { font-size: 1.15em; }
+section .text-xl   { font-size: 1.3em; }
+section .text-2xl  { font-size: 1.6em; }
+section .text-3xl  { font-size: 2em; }
+
+
+/* --- 5.2 Flexbox --- */
+
+section .flex            { display: flex; }
+section .flex-col        { display: flex; flex-direction: column; }
+section .items-center    { align-items: center; }
+section .justify-center  { justify-content: center; }
+section .justify-between { justify-content: space-between; }
+
+
+/* --- 5.3 Grid --- */
+
+section .grid   { display: grid; }
+section .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); }
+section .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); }
+section .gap-4  { gap: var(--space-4); }
+section .gap-8  { gap: var(--space-8); }
+
+
+/* --- 5.4 Padding --- */
+
+section .p-4  { padding: var(--space-4); }
+section .p-8  { padding: var(--space-8); }
+section .p-12 { padding: var(--space-12); }
+
+
+/* --- 5.5 Text Alignment --- */
+
+section .text-center { text-align: center; }
+section .text-left   { text-align: left; }
+section .text-right  { text-align: right; }
+
+
+/* --------------------------------------------------------------------------
+   6. Print Styles
+   -------------------------------------------------------------------------- */
+
+@media print {
+  section {
+    box-shadow: none;
+    page-break-inside: avoid;
+  }
+
+  section.title-slide,
+  section.thank-you,
+  section.dark {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  section pre {
+    box-shadow: none;
+    border: 1px solid var(--gray-300);
+  }
+
+  section .metric-card div.metric {
+    box-shadow: none;
+    border: 1px solid var(--gray-300);
+  }
+}
+
+
+/* --------------------------------------------------------------------------
+   7. Slide Number & Footer
+   -------------------------------------------------------------------------- */
+
+section::after {
+  font-size: 0.55em;
+  color: var(--gray-400);
+  padding: var(--space-2) var(--space-4);
+}
+
+section.title-slide::after,
+section.thank-you::after {
+  color: rgba(255, 255, 255, 0.35);
+}
+
+/* Footer styling */
+section footer {
+  position: absolute;
+  bottom: var(--space-4);
+  left: var(--space-8);
+  right: var(--space-8);
+  font-size: 0.55em;
+  color: var(--gray-400);
+  border-top: 1px solid var(--gray-100);
+  padding-top: var(--space-2);
+}
+
+section.dark footer {
+  color: var(--gray-600);
+  border-top-color: var(--gray-800);
+}

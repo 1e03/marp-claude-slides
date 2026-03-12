@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# input/output ディレクトリ内のファイルを無視（ディレクトリ自体は管理）
+input/*
+!input/.gitkeep
+output/*
+!output/.gitkeep
+
+# Marp エクスポート一時ファイル
+*.pdf
+*.pptx
+*.html
+!templates/*.html
+
+# Editor
+*.swp
+*.swo
+*~
+.vscode/
+.idea/

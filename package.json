@@ -1,0 +1,14 @@
+{
+  "name": "slides",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Marp × Claude Code スライド自動生成システム",
+  "scripts": {
+    "preview": "bash scripts/preview.sh",
+    "export": "bash scripts/export.sh",
+    "build": "marp templates/default.md --theme themes/theme.css -o output/default.html"
+  },
+  "devDependencies": {
+    "@marp-team/marp-cli": "^4"
+  }
+}
