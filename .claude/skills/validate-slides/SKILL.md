@@ -33,21 +33,19 @@ allowed-tools: Read, Grep, Glob, Bash
   - 使用クラス（`<!-- _class: xxx -->`）
 
 ### 4. 各スライドの検証
-以下のルールに対して検証を実行:
-
 以下のルールに対して検証を実行（閾値は `config.yml` の `text_rules` から取得）:
 
-| ルール | config.yml のキー | デフォルト値 |
-|--------|------------------|-------------|
-| タイトル文字数 | `title.max_chars` | 30文字以内 |
-| タイトル禁止文字 | `title.forbidden_chars` | コロン、感嘆符 |
-| 1行の文字数 | `body.max_chars_per_line` | 40文字以内 |
-| スライド総文字数 | `body.max_chars_per_slide` | 400文字以内 |
-| スライド総行数 | `body.max_lines_per_slide` | 12行以内 |
-| 箇条書き項目数 | `bullet.max_items` | 5項目以内 |
-| 箇条書きネスト | `bullet.max_nesting` | 2段まで |
-| 画像枚数 | `image.max_per_slide` | 2枚以内 |
-| 絵文字数 | `emoji.max_per_slide` | 2個まで |
+| ルール | config.yml のキー |
+|--------|------------------|
+| タイトル文字数 | `title.max_chars` |
+| タイトル禁止文字 | `title.forbidden_chars` |
+| 1行の文字数 | `body.max_chars_per_line` |
+| スライド総文字数 | `body.max_chars_per_slide` |
+| スライド総行数 | `body.max_lines_per_slide` |
+| 箇条書き項目数 | `bullet.max_items` |
+| 箇条書きネスト | `bullet.max_nesting` |
+| 画像枚数 | `image.max_per_slide` |
+| 絵文字数 | `emoji.max_per_slide` |
 
 ### 5. レポート出力
 以下の形式でレポートを表示:
@@ -62,8 +60,8 @@ allowed-tools: Read, Grep, Glob, Bash
 
 ### スライド別結果
 #### スライド 1: {タイトル}
-- ✅ タイトル文字数: XX文字 (上限30)
-- ❌ 本文行数: XX行 (上限12) → 要修正
+- ✅ タイトル文字数: XX文字 (上限 {title.max_chars})
+- ❌ 本文行数: XX行 (上限 {body.max_lines_per_slide}) → 要修正
 ...
 
 ### 違反サマリー

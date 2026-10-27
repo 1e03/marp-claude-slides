@@ -57,9 +57,9 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Agent
   - 参考文献スライド（リサーチソースのURL一覧）
 
 ### 6. 制約チェック
-各スライドについて `docs/slide-rules.md` の制約を確認し、違反があれば修正する。
+各スライドについて `config.yml` の `text_rules` の値で制約を確認し、違反があれば修正する。
 
 ### 7. 出力
 - `output/` ディレクトリに保存
-- ファイル名: `output/{トピック名のスラッグ}.md`
+- ファイル名: `output/YYYY-MM-DD-{トピック名のスラッグ}.md`
 - 生成結果のサマリーを表示（スライド枚数、リサーチソース数）

@@ -62,5 +62,5 @@ allowed-tools: Read, Write, Edit, Grep, Glob, Bash, Agent
 
 ### 6. 出力
 - ファイルを `output/` ディレクトリに保存する
-- ファイル名: `output/{トピック名のスラッグ}.md`
+- ファイル名: `output/YYYY-MM-DD-{トピック名のスラッグ}.md`
 - 生成結果のサマリーを表示（スライド枚数、使用パターン一覧）

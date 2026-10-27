@@ -17,19 +17,20 @@ allowed-tools: Read, Write, Edit, Grep, Glob
 - 未指定の場合、`output/` 内の最新の `.md` ファイルを対象とする
 
 ### 2. ルール・パターンの読み込み
+- `config.yml` — `text_rules`（上限値はここが正）
 - `docs/slide-rules.md` — 制約ルール
 - `docs/layout-patterns.md` — レイアウトパターン集（修正時の代替案として使用）
 
 ### 3. 違反の検出
-各スライドについて以下を検証:
-- タイトル文字数（30文字上限）
-- タイトルのコロン使用
-- 1行の文字数（40文字上限）
-- スライド総文字数（400文字上限）
-- スライド総行数（12行上限）
-- 箇条書き項目数（5項目上限）
-- 箇条書きネスト（2段上限）
-- 画像枚数（2枚上限）
+各スライドについて、`config.yml` の `text_rules` の値を上限として以下を検証:
+- タイトル文字数（`title.max_chars`）
+- タイトルの禁止文字（`title.forbidden_chars`）
+- 1行の文字数（`body.max_chars_per_line`）
+- スライド総文字数（`body.max_chars_per_slide`）
+- スライド総行数（`body.max_lines_per_slide`）
+- 箇条書き項目数（`bullet.max_items`）
+- 箇条書きネスト（`bullet.max_nesting`）
+- 画像枚数（`image.max_per_slide`）
 
 ### 4. 自動修正ルール
 
